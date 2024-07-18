@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 // Application Module
 const userHandler = require("./routes/userHandler");
+const todoHandler = require("./routes/todoHandler");
 
 // Express App object
 const app = express();
@@ -12,14 +13,15 @@ const app = express();
 mongoose
   .connect("mongodb://localhost/TodoDB")
   .then(() => console.log(`Connect Successful`))
-  .catch((err)=>console.log(err)
-  )
+  .catch((err) => console.log(err));
+
 
 // Application Middleware
 app.use(express.json());
 
 // Routes Middleware
 app.use("/user", userHandler);
+app.use("/todo", todoHandler);
 
 // Application Routes
 app.get("/", (req, res) => {

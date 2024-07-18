@@ -3,10 +3,11 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
+const mongoose = require("mongoose");
 
 // Application Module
 const userSchema = require("../schema/userSchema");
-const mongoose = require("mongoose");
+
 
 // Create User Model in MongoDB
 const User = new mongoose.model("User", userSchema);
