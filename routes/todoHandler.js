@@ -49,6 +49,26 @@ routes.get("/", checkLogin, async (req, res) => {
   }
 });
 
+// Get single Todo From MongoDB Database
+routes.get("/:id", checkLogin, async (req, res) => {
+  console.log(req.params);
+  
+  try {
+    const result = await Todo.find({ _id: req.params.id })
+
+    res.status(200).json({
+      result,
+      message: "Success",
+    });
+  } catch (error) {
+    console.log(error);
+    
+    res.status(500).json({
+      message: "There was an error in server side.",
+    });
+  }
+});
+
 // Update Single Todo from MongoDB Database
 routes.put("/:id", checkLogin, async (req, res) => {
   try {
