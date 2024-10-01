@@ -41,7 +41,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "There is an error" });
 });
 
-// Server listening port 3000
+// Server listening on port 3000
 app.listen(3000, () => {
   console.log(`Server listening: http://localhost:3000`);
 });
